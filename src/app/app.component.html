@@ -1,0 +1,142 @@
+<div class="main">
+  <div class="row margin-class">
+    <div class="col-3">
+      <h1 class="btn">COVID-19-Tracker</h1>
+    </div>
+    <div class="statewise">
+      <label for="state">Choose State</label>
+      <select
+        name="selectedState"
+        id="state"
+        class="form-control"
+        [(ngModel)]="selectedState"
+        (change)="onStateSelected()"
+      >
+        <option *ngFor="let data of allData" [value]="data.statecode">
+          {{ data.state }}
+        </option>
+      </select>
+    </div>
+  </div>
+
+  <div class="row margin-class">
+    <div class="alldata">
+      <h5>
+        <span class="badge">
+          <img src="https://www.countryflags.io/IN/shiny/32.png" />
+          Country Summary</span
+        >
+      </h5>
+      <table class="table table-striped">
+        <tbody>
+          <tr>
+            <td>Total Confirmed</td>
+            <td>{{ totalData?.confirmed | number }}</td>
+          </tr>
+          <tr>
+            <td>Total Active</td>
+            <td>{{ totalData?.active | number }}</td>
+          </tr>
+          <tr>
+            <td>Total Recovered</td>
+            <td>{{ totalData?.recovered | number }}</td>
+          </tr>
+          <tr>
+            <td>Total Deaths</td>
+            <td>{{ totalData?.deaths | number }}</td>
+          </tr>
+          <tr>
+            <td>Newly Confirmed</td>
+            <td>{{ totalData?.deltaconfirmed | number }}</td>
+          </tr>
+          <tr>
+            <td>Newly Recovered</td>
+            <td>{{ totalData?.deltarecovered | number }}</td>
+          </tr>
+          <tr>
+            <td>Newly Deaths</td>
+            <td>{{ totalData?.deltadeaths | number }}</td>
+          </tr>
+          <tr>
+            <td>Migrated to Other</td>
+            <td>{{ totalData?.migratedother | number }}</td>
+          </tr>
+          <tr>
+            <td>Last Updated Time</td>
+            <td>{{ totalData?.lastupdatedtime }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div *ngIf="selectedState == undefined"></div>
+    <div class="statedata" *ngIf="selectedState != undefined">
+      <h5 class="state">
+        <span class="badge">{{ stateData?.state }} Summary</span>
+      </h5>
+      <table class="table table-striped">
+        <tbody>
+          <tr>
+            <td>Total Confirmed</td>
+            <td>{{ stateData?.confirmed | number }}</td>
+          </tr>
+          <tr>
+            <td>Total Active</td>
+            <td>{{ stateData?.active | number }}</td>
+          </tr>
+          <tr>
+            <td>Total Recovered</td>
+            <td>{{ stateData?.recovered | number }}</td>
+          </tr>
+          <tr>
+            <td>Total Deaths</td>
+            <td>{{ stateData?.deaths | number }}</td>
+          </tr>
+          <tr>
+            <td>Newly Confirmed</td>
+            <td>{{ stateData?.deltaconfirmed | number }}</td>
+          </tr>
+          <tr>
+            <td>Newly Recovered</td>
+            <td>{{ stateData?.deltarecovered | number }}</td>
+          </tr>
+          <tr>
+            <td>Newly Deaths</td>
+            <td>{{ stateData?.deltadeaths | number }}</td>
+          </tr>
+          <tr>
+            <td>Migrated to Other</td>
+            <td>{{ stateData?.migratedother | number }}</td>
+          </tr>
+          <tr>
+            <td>Last Updated Time</td>
+            <td>{{ stateData?.lastupdatedtime }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="districtdata" *ngIf="selectedState != undefined">
+      <h5 class="badge-district">
+        <span class="badge">{{ stateData?.state }} District wise Details</span>
+      </h5>
+
+      <table class="table table-sm">
+        <thead>
+          <tr>
+            <th class="distictname">DistrictName</th>
+            <th class="active">Active</th>
+            <th class="conf">Confirmed</th>
+          </tr>
+        </thead>
+        <tbody class="districtwise">
+          <tr *ngFor="let data of districtData">
+            <td class="distictname">{{ data.name }}</td>
+            <td class="active">{{ data.active | number }}</td>
+            <td class="conf">{{ data.confirmed | number }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

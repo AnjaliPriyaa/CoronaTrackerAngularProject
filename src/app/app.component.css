@@ -1,0 +1,77 @@
+.main {
+  background-color: rgb(34, 34, 34);
+  height: 90vh;
+  width: 90vw;
+  margin-top: 5vh;
+  margin-left: 5vw;
+  box-shadow: 0.2vh 0.2vh 0.8vh gray;
+}
+
+tbody {
+  height: 60vh;
+  overflow-y: auto;
+  background-color: rgba(197, 194, 194, 0.63);
+}
+
+thead > tr,
+tbody {
+  display: block;
+  background-color: rgba(255, 255, 255, 0.747);
+}
+.alldata {
+  margin-left: 6vw;
+  margin-top: 3vh;
+}
+.statedata {
+  margin-left: 8vw;
+  margin-top: 3vh;
+}
+.districtdata {
+  margin-left: 8vw;
+  margin-top: 3vh;
+}
+.margin-class {
+  margin: 5px;
+}
+.btn {
+  color: white;
+  margin-left: -5vw;
+  font-weight: 600;
+  font-size: calc(1.25vh + 1.25vw);
+}
+.batch {
+  margin-top: 5vh;
+}
+.state {
+  margin-top: 1vh;
+  padding-bottom: 1vh;
+}
+.badge-district {
+  margin-top: 1vh;
+  padding-bottom: 1vh;
+}
+.statewise {
+  margin-left: 10.5vw;
+}
+.districtdata {
+  height: 30vh;
+  width: 20vw;
+}
+.distictname,
+.active,
+.conf {
+  height: 6vh;
+}
+.districtwise {
+  height: 53.5vh;
+}
+.distictname {
+  width: 20vw;
+  margin-left: -3vw;
+}
+.active {
+  width: 10vw;
+}
+.conf {
+  width: 15vw;
+}
